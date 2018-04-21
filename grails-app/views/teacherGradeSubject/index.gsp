@@ -16,7 +16,7 @@
 <br>
 <div class ="container">
     <div class="text-right">
-        <g:link class="btn btn-primary "  controller="gradeSubject" action="create">Add Grade Subject</g:link><br><br>
+        <g:link class="btn btn-primary "  controller="teacherGradeSubject" action="create">Assign Grade Subject</g:link><br><br>
     </div>
 
 
@@ -26,20 +26,20 @@
             <thead>
             <tr>
                 <th>S.N.</th>
-                <th>Grade</th>
-                <th>View Details</th>
+                <th>Teacher Name</th>
+                <th>Subject</th>
                 <th>Delete</th>
 
 
             </tr>
             </thead>
-            <g:each in="${gradeList}" status="i" var="gradeInstance">
+            <g:each in="${teacherGradeSubjectList}" status="i" var="teacherGradeSubjectInstance">
                 <tr>
                     <td> ${i + 1} </td>
-                    <td>${gradeInstance?.gradeNo}</td>
-                    %{--<td>${gradeSubjectInstance?.subjectName}</td>--}%
-                    <td><g:link action="show" id="${gradeInstance.id}">View Details</g:link></td>
-                    <td><g:link action="delete" id="${gradeInstance.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>
+                    <td>${teacherGradeSubjectInstance?.teacher}</td>
+                    <td>${teacherGradeSubjectInstance?.gradeSubject}</td>
+                    <td><g:link action="delete" id="${teacherGradeSubjectInstance.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>
+
                 </tr>
             </g:each>
         </table>

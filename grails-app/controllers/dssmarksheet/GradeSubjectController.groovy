@@ -6,8 +6,8 @@ import grails.plugin.springsecurity.annotation.Secured
 class GradeSubjectController {
 
     def index() {
-        def gradeSubjectList = GradeSubject.findAll()
-        [gradeSubjectList: gradeSubjectList]
+        def gradeList = Grade.findAll()
+        [gradeList: gradeList]
     }
     def create(){
         def gradeList = Grade.findAll()
@@ -24,8 +24,32 @@ class GradeSubjectController {
         GradeSubject gradeSubject = new  GradeSubject()
         gradeSubject.gradeNo = grade
         gradeSubject.subjectName = subject
-        gradeSubject.save(flush:true,failOnError:true)
-        redirect(action: "index")
+        if(!GradeSubject.findBySubjectNameAndGradeNo(subject,grade)){
+            gradeSubject.save(flush:true,failOnError:true)
+            redirect(action: "index")
+        }else{
+            println "Error Already exists"
+            redirect(action: "create",params: params)
+        }
+
+    }
+    def show(){
+        def grade = Grade.findById(params.id as long)
+        def gradeSubjectList = GradeSubject.findAllByGradeNo(grade)
+        [gradeSubjectList:gradeSubjectList]
+
+    }
+
+    def delete(){
+        def gradeSubjectToDelete = GradeSubject.findById(params.id as long)
+        if(!TeacherGradeSubject.findByGradeSubject(gradeSubjectToDelete)){
+            gradeSubjectToDelete.delete(flush: true)
+            redirect(action: "index")
+        }else{
+            println "Cannot Be Deleted!"
+            redirect(action: "index")
+        }
+
     }
 
 }

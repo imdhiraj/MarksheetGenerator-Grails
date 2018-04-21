@@ -47,9 +47,7 @@ class StudentController {
         def studentToUpdate = Student.findById(params.id as long)
         String name = params.name as String
         int rollNo =  Integer.parseInt(params.rollNo as String)
-        String grades = params.grade
-        def gr = grades as Grade.GradeNo
-        Grade grade = Grade.findByGradeNo(gr)
+        def grade = Grade.findById(params.grade as long)
         studentToUpdate.name = name
         studentToUpdate.rollNo = rollNo
         studentToUpdate.grade = grade

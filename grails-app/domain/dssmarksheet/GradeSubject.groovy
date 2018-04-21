@@ -9,4 +9,9 @@ class GradeSubject {
 
     static constraints = {
     }
+    String toString(){
+        String gr = gradeNo.toString()
+        String strToDisplay = gr+" - "+subjectName
+        return strToDisplay
+    }
 }

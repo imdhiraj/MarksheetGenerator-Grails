@@ -20,27 +20,30 @@
     %{--</div>--}%
 
     <div class="row">
+    <g:form controller="teacher" action="subjectMarks">
+
+
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>S.N.</th>
-                <th>Grade</th>
-                <th>Subject</th>
-                <th>View Students</th>
-
+                <th>Student Name</th>
+                <th>Obtained Marks</th>
             </tr>
             </thead>
-            <g:each in="${gradeSubjectList}" status="i" var="gradeSubjectInstance">
+            <g:each in="${studentList}" status="i" var="studentInstance">
                 <tr>
                     <td> ${i + 1} </td>
-                    <td>${gradeSubjectInstance.gradeNo.gradeNo }</td>
-                    <td>${gradeSubjectInstance?.subjectName.subjectName}</td>
-                    <td><g:link controller="teacher" action="show" id="${gradeSubjectInstance.id}">View </g:link> </td>
-
+                    <td>${studentInstance?.name}<input type="hidden" value="${studentInstance?.name}" name="studentName[]"></td>
+                    <td><g:textField name="obtainedMarks[]" id="obtainedMarks" placeholder="Marks"></g:textField></td>
+                    %{--<td><g:link action="edit" id="${teacherInstance.id}">Edit</g:link> </td>--}%
+                    %{--<td><g:link action="delete" id="${teacherInstance.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>--}%
                     %{--<td><g:link controller="student" action="edit" params="[id:${studentInstance.id}]" >EDit</g:link> </td>--}%
                 </tr>
             </g:each>
         </table>
+
+    </g:form>
     </div>
 </div>
 </body>

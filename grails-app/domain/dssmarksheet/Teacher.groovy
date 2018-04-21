@@ -6,7 +6,11 @@ class Teacher {
     String address
     String contactNumber
     String email
+    User user
 
     static constraints = {
+    }
+    String toString(){
+        teacherName
     }
 }

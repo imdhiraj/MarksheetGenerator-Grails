@@ -13,6 +13,7 @@ class DashboardController {
         if(userRole.role.authority=="ROLE_ADMIN"){
             redirect(controller: "admin", action: "dashboard")
         }else{
+
             redirect(controller: "teacher", action: "dashboard")
         }
 

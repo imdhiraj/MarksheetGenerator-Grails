@@ -5,12 +5,11 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center">Update Teacher Details</h1>
+    <h1 class="text-center">Assign Grade and Subject</h1>
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <g:form controller="teacher" action="update">
-                <g:hiddenField name="id" value="${teacherInstance.id}"/>
+            <g:form controller="teacherGradeSubject" action="saveForm">
                 <g:render template="form"/>
                 <input type="submit" value="Add" class="btn btn-success">
             </g:form>

@@ -11,20 +11,37 @@
                     <li class="nav-item">
                         <g:link controller="dashboard" class="nav-link" action="index">Home </g:link>
                     </li>
-                    <li class="nav-item">
-                        <g:link controller="student" class="nav-link" action="index">View Student</g:link>
-                    </li> <li class="nav-item">
-                        <g:link controller="subject" class="nav-link" action="index">View Subject</g:link>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            View
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <g:link controller="teacher" class="dropdown-item" action="index">View Teacher</g:link>
+                            <g:link controller="student" class="dropdown-item" action="index">View Student</g:link>
+                            <g:link controller="subject"class="dropdown-item" action="index">View Subject</g:link>
+                            <g:link controller="gradeSubject" class="dropdown-item" action="index">View Grade Subject</g:link>        <div class="dropdown-divider"></div>
+                            %{--<a class="dropdown-item" href="#">Something else here</a>--}%
+                        </div>
                     </li>
+                    %{--<li class="nav-item">--}%
+                        %{--<g:link controller="student" class="nav-link" action="index">View Student</g:link>--}%
+                    %{--</li> <li class="nav-item">--}%
+                        %{--<g:link controller="subject" class="nav-link" action="index">View Subject</g:link>--}%
+                    %{--</li>--}%
+                    %{--<li class="nav-item">--}%
+                        %{--<g:link controller="teacher" class="nav-link" action="index">View Teacher</g:link>--}%
+                    %{--</li>--}%
+                    %{--<li class="nav-item">--}%
+                        %{--<g:link controller="gradeSubject" class="nav-link" action="index">View Grade Subject</g:link>--}%
+                    %{--</li>--}%
                     <li class="nav-item">
-                        <g:link controller="teacher" class="nav-link" action="index">View Teacher</g:link></li>
-                    <li class="nav-item">
-                        <g:link controller="gradeSubject" class="nav-link" action="index">View Grade Subject</g:link></li>
-                    <sec:ifNotLoggedIn>
-                        <li class="nav-item">
-                            <a href="${createLink(action:'index', controller:'login')}" class="nav-link">Login</a>
-                        </li>
-                    </sec:ifNotLoggedIn>
+                        <g:link controller="teacherGradeSubject" class="nav-link" action="index">Assign Grade Subject</g:link>
+                    </li>
+                    %{--<sec:ifNotLoggedIn>--}%
+                        %{--<li class="nav-item">--}%
+                            %{--<a href="${createLink(action:'index', controller:'login')}" class="nav-link">Login</a>--}%
+                        %{--</li>--}%
+                    %{--</sec:ifNotLoggedIn>--}%
                     <sec:ifLoggedIn>
                         <li class="nav-item">
                             <g:link controller="logout" class="nav-link">Logout</g:link>
@@ -34,3 +51,5 @@
             </div>
         </nav>
 </div>
+
+
