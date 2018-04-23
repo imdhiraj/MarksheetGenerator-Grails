@@ -9,4 +9,7 @@ class Student {
     static constraints = {
 
     }
+    String toString(){
+        grade
+    }
 }

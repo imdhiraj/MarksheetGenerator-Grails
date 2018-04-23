@@ -7,8 +7,8 @@ import grails.plugin.springsecurity.annotation.Secured
 class StudentController {
 
     def index() {
-        def studentList = Student.findAll()
-        [studentList: studentList]
+        def gradeList = Grade.findAll()
+        [gradeList: gradeList]
     }
 
     def create() {
@@ -59,5 +59,10 @@ class StudentController {
         def studentToDelete = Student.findById(params.id as long)
         studentToDelete.delete(flush: true)
         redirect(action: "index")
+    }
+    def show(){
+        def grade = Grade.findById(params.id as long)
+        def studentList = Student.findAllByGrade(grade)
+        [studentList:studentList]
     }
 }

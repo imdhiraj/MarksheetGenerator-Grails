@@ -14,14 +14,19 @@
 
 <body>
 <br>
-<div class ="container">
-    <div class="text-right">
-        <g:link class="btn btn-primary "  controller="gradeSubject" action="create">Add Grade Subject</g:link><br><br>
-    </div>
-
-
+<div class="container">
     <div class="row">
-        <table class="table table-striped">
+        <div class="col-md-3">
+            <p class="btn btn-secondary text-right">${gradeSubjectList.gradeNo[0].toString()}</p>
+        </div>
+        <div class="text-right col-md-9">
+            <g:link class="btn btn-primary "  controller="gradeSubject" action="create">Add Grade Subject</g:link><br><br>
+        </div>
+    </div>
+</div>
+<div class ="container">
+    <div class="row">
+        <table class="table table-striped table-bordered " style="margin-left:10px;margin-right:10px; ">
 
             <thead>
             <tr>

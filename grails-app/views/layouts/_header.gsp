@@ -6,6 +6,8 @@
     <asset:stylesheet src="bootstrap.css"/>
     <asset:stylesheet src="bootstrap-grid.css"/>
     <asset:stylesheet src="bootstrap.min.css"/>
+    %{--<asset:stylesheet src="dashboard.css"/>--}%
+
     %{--<asset:stylesheet src="application.css"/>--}%
     <asset:stylesheet src="errors.css"/>
     %{--<asset:stylesheet src="grails.css"/>--}%
@@ -15,6 +17,7 @@
     <asset:javascript src="jquery-2.2.0.min.js"/>
     <asset:javascript src="bootstrap.js"/>
     <asset:javascript src="bootstrap.bundle.js.js"/>
+    <asset:javascript src="https://unpkg.com/feather-icons/dist/feather.min.js"/>
     <g:layoutHead/>
 </head>
 <body>

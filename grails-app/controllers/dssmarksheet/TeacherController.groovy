@@ -78,9 +78,10 @@ class TeacherController {
     def dashboard(){
 
         def user = springSecurityService.currentUser
-        Teacher teacher = Teacher.findByUser(user);
+        def teacher = Teacher.findByUser(user);
         def teacherGradeSubject = TeacherGradeSubject.findAllByTeacher(teacher)
         def gradeSubjectList = []
+        def teacherName= teacher
         print(user)
         println(teacher)
         println(teacherGradeSubject)
@@ -89,15 +90,65 @@ class TeacherController {
             gradeSubjectList.add(gradeSubjectLists)
         }
 
-        [gradeSubjectList: gradeSubjectList]
+        [ teacherName:teacherName,gradeSubjectList: gradeSubjectList]
 
     }
+
     @Secured("ROLE_USER")
     def show(){
         def gradeSubject = GradeSubject.findById(params.id as long)
+        print(gradeSubject)
         def grade = gradeSubject.gradeNo
-        def studentList = Student.findByGrade(grade)
-        [studentList: studentList]
+        def studentList = Student.findAllByGrade(grade)
+        [gradeSubject:gradeSubject,studentList: studentList]
     }
+
+
+    @Secured("ROLE_USER")
+    def subjectMarks(){
+        println("------------ "+params)
+
+        def studentList = params.list('studentName[]')
+        def markList = params.list('obtainedMarks[]')
+        String [] name = params.subject.toString().trim().split("-")
+        println("(((((((((((((((----"+name[0])
+        println("(((((((((((((((----"+name[1])
+        println("(((((((((((((((----"+Grade.GradeNo.name[0])
+
+
+//        def gradeSubject = GradeSubject.findByGradeNoAndSubjectName(Grade.GradeNo.name[0],Subject.findBySubjectName(name[1]))
+//        print("-------"+gradeSubject)
+        def teacher = Teacher.findByUser(springSecurityService.currentUser)
+
+        for(def i=0;i<studentList.size();i++){
+            def sm = new StudentMarks()
+            sm.student = Student.findByName(studentList[i])
+//            sm.teacherGradeSubject = TeacherGradeSubject.findByTeacherAndGradeSubject(teacher,gradeSubject)
+
+            def t= Teacher.findByUser(springSecurityService.currentUser);
+            def teacherGradeSubject = TeacherGradeSubject.findByTeacher(teacher)
+
+            sm.teacherGradeSubject = teacherGradeSubject
+            sm.marksObtained=Double.parseDouble(markList[i])
+            sm.save(flush:true,failOnError:true)
+        }
+        redirect(action: 'viewStudentMarks')
+    }
+    def viewStudentMarks(){
+        def studentMarksList = StudentMarks.findAll()
+        [studentMarksList:studentMarksList]
+
+    }
+
+    def studentMarksheet(){
+
+        def sub = "GRADE_2 - Math"
+        def t= Teacher.findByUser(springSecurityService.currentUser);
+        def teacherGradeSubject = TeacherGradeSubject.findByTeacher(teacher)
+
+
+
+    }
+
 
 }

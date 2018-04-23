@@ -1,5 +1,6 @@
+
 <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
             <a class="navbar-brand homeNavLogo" id= "toplogobrand" href="#">
                 <asset:image src="logo.png"  style="width:150px;" title="DSS" alt="DSS"/>
             </a>
@@ -8,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <g:link controller="dashboard" class="nav-link" action="index">Home </g:link>
                     </li>
                     <li class="nav-item dropdown">
@@ -18,7 +19,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <g:link controller="teacher" class="dropdown-item" action="index">View Teacher</g:link>
                             <g:link controller="student" class="dropdown-item" action="index">View Student</g:link>
-                            <g:link controller="subject"class="dropdown-item" action="index">View Subject</g:link>
+                            <g:link controller="subject" class="dropdown-item" action="index">View Subject</g:link>
                             <g:link controller="gradeSubject" class="dropdown-item" action="index">View Grade Subject</g:link>        <div class="dropdown-divider"></div>
                             %{--<a class="dropdown-item" href="#">Something else here</a>--}%
                         </div>
@@ -43,13 +44,12 @@
                         %{--</li>--}%
                     %{--</sec:ifNotLoggedIn>--}%
                     <sec:ifLoggedIn>
-                        <li class="nav-item">
-                            <g:link controller="logout" class="nav-link">Logout</g:link>
+                        <li class="nav-item btn-secondary btn-sm" style="margin-left: 500px">
+                            <g:link controller="logout" class="nav-link" style="font-size: large">Logout</g:link>
                         </li>
                     </sec:ifLoggedIn>
                 </ul>
             </div>
         </nav>
+
 </div>
-
-

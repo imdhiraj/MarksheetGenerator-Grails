@@ -9,6 +9,7 @@ class Teacher {
     User user
 
     static constraints = {
+        email(blank: false, email: true)
     }
     String toString(){
         teacherName

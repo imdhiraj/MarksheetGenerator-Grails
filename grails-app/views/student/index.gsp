@@ -26,25 +26,19 @@
             <thead>
             <tr>
                 <th>S.N.</th>
-                <th>Name</th>
-                <th>Roll No</th>
                 <th>Grade</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>View Details</th>
+
+
 
             </tr>
             </thead>
-            <g:each in="${studentList}" status="i" var="studentInstance">
+            <g:each in="${gradeList}" status="i" var="gradeInstance">
                 <tr>
                     <td> ${i + 1} </td>
-                    <td>${studentInstance?.name}</td>
-                    <td>${studentInstance?.rollNo}</td>
-                    <td>${studentInstance.grade}</td>
-                    <td><g:link controller="student" action="edit" id="${studentInstance.id}" >Edit</g:link> </td>
-
-
-                    <td><g:link action="delete" id="${studentInstance.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>
-
+                    <td>${gradeInstance?.gradeNo}</td>
+                    %{--<td>${gradeSubjectInstance?.subjectName}</td>--}%
+                    <td><g:link action="show" id="${gradeInstance.id}">View Details</g:link></td>
                 </tr>
             </g:each>
         </table>
