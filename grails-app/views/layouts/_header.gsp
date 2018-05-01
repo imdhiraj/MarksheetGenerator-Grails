@@ -18,6 +18,7 @@
     <asset:javascript src="bootstrap.js"/>
     <asset:javascript src="bootstrap.bundle.js.js"/>
     <asset:javascript src="https://unpkg.com/feather-icons/dist/feather.min.js"/>
+    <asset:javascript src="js.js"/>
     <g:layoutHead/>
 </head>
 <body>

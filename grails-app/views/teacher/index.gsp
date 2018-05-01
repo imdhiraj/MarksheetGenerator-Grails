@@ -40,8 +40,8 @@
                     <td>${teacherInstance?.address}</td>
                     <td>${teacherInstance?.contactNumber}</td>
                     <td>${teacherInstance?.email}</td>
-                    <td><g:link action="edit" id="${teacherInstance.id}">Edit</g:link> </td>
-                    <td><g:link action="delete" id="${teacherInstance.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>
+                    <td><g:link action="edit" id="${teacherInstance?.id}">Edit</g:link> </td>
+                    <td><g:link action="delete" id="${teacherInstance?.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>
                     %{--<td><g:link controller="student" action="edit" params="[id:${studentInstance.id}]" >EDit</g:link> </td>--}%
                 </tr>
             </g:each>

@@ -5,7 +5,7 @@
   Time: 12:54 PM
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="dssmarksheet.StudentMarks" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="main"/>
@@ -18,42 +18,52 @@
     <div class="text-center">
         <a href="#" class="btn-outline-info btn">${gradeSubject}</a><br><br>
     </div>
+    <g:if test="${!flag && !teacherGradeSubject.marksStatus}">
     <div class="text-right">
-        <a href="#" onclick="myFunction()" class="btn-outline-info btn">Add Marks</a><br><br>
+        <g:link action="show" params="[flag: true]" class="btn-outline-info btn" id="${gradeSubject.id}">Add Marks</g:link><br><br>
     </div>
+    </g:if>
 
-
-    <form controller="teacher" action="subjectMarks" id ="formID">
-    <g:hiddenField name="subject" value="${gradeSubject}"/>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>S.N.</th>
-            <th>Student Name</th>
-            <th>Obtained Marks</th>
-        </tr>
-        </thead>
-        <g:each in="${studentList}" status="i" var="studentInstance">
+    <g:form controller="teacher" action="subjectMarks">
+    <g:hiddenField name="subject" value="${gradeSubject?.id}"/>
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td> ${i + 1} </td>
-                <td>${studentInstance?.name}<input type="hidden" value="${studentInstance?.name}" name="studentName[]"></td>
-                <td><g:textField name="obtainedMarks[]" id="obtainedMarks" placeholder="Marks"></g:textField></td>
+                <th>S.N.</th>
+                <th>Student Name</th>
+                <g:if test="${flag||teacherGradeSubject.marksStatus}">
+                    <th>Obtained Marks</th>
+                </g:if>
+
             </tr>
-        </g:each>
-    </table>
-    <div class="text-right">
-        <g:submitButton name="submit" class="text-right"></g:submitButton>
-    </div>
-</form>
-    <script>
-        function myFunction() {
-            var x = document.getElementById("formID");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-    </script>
+            </thead>
+            <g:each in="${studentList}" status="i" var="studentInstance">
+                <tr>
+                    <td> ${i + 1} </td>
+                    <td>${studentInstance?.name}<input type="hidden" value="${studentInstance?.name}" name="studentName[]"></td>
+                    <td>
+                        <g:if test="${teacherGradeSubject.marksStatus}">
+                            ${dssmarksheet.StudentMarks.findByStudentAndTeacherGradeSubject(studentInstance,teacherGradeSubject)?.marksObtained}
+                        </g:if>
+                        <g:else>
+                            <g:if test="${flag}">
+                                <g:textField name="obtainedMarks[]" id="obtainedMarks" placeholder="Marks"></g:textField>
+                            </g:if>
+
+                        </g:else>
+
+                    </td>
+
+                </tr>
+            </g:each>
+        </table>
+        <div class="text-right">
+        <g:if test="${flag}">
+            <g:submitButton name="submit" class="text-right"></g:submitButton>
+        </g:if>
+        </div>
+    </g:form>
+
+</div>
 </body>
 </html>

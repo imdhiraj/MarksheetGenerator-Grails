@@ -61,8 +61,9 @@
             <g:each in="${studentMarkList}" status="i" var="studentMarksInstance">
                 <tr>gradeSubjectList
                     <td> ${i + 1} </td>
-                    <td>${studentMarksInstance. }</td>
-                    <td>${gradeSubjectInstance?.subjectName.subjectName}</td>
+
+                    <td>${studentMarksInstance.student.student }</td>
+                    <td>${studentMarksInstance?.obtainedMarks}</td>
                     <td><g:link controller="teacher" action="show" id="${gradeSubjectInstance.id}">View </g:link> </td>
                     %{--<td><g:link controller="student" action="edit" params="[id:${studentInstance.id}]" >EDit</g:link> </td>--}%
                 </tr>

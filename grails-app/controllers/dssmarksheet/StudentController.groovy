@@ -63,6 +63,7 @@ class StudentController {
     def show(){
         def grade = Grade.findById(params.id as long)
         def studentList = Student.findAllByGrade(grade)
+        println "studentList = $studentList.name"
         [studentList:studentList]
     }
 }

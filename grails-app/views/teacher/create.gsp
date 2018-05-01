@@ -7,6 +7,7 @@
 <div class="container">
     <h1 class="text-center">Add New Teacher</h1>
     <div class="row">
+
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <g:form controller="teacher" action="saveForm">

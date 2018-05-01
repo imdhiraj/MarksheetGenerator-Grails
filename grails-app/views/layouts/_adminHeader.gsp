@@ -38,18 +38,20 @@
                     <li class="nav-item">
                         <g:link controller="teacherGradeSubject" class="nav-link" action="index">Assign Grade Subject</g:link>
                     </li>
+                    <li class="nav-item">
+                        <g:link controller="marksheet" class="nav-link" action="index">View Marks Sheet</g:link>
+                    </li>
                     %{--<sec:ifNotLoggedIn>--}%
                         %{--<li class="nav-item">--}%
                             %{--<a href="${createLink(action:'index', controller:'login')}" class="nav-link">Login</a>--}%
                         %{--</li>--}%
                     %{--</sec:ifNotLoggedIn>--}%
                     <sec:ifLoggedIn>
-                        <li class="nav-item btn-secondary btn-sm" style="margin-left: 500px">
+                        <li class="nav-item btn-secondary btn-sm">
                             <g:link controller="logout" class="nav-link" style="font-size: large">Logout</g:link>
                         </li>
                     </sec:ifLoggedIn>
                 </ul>
             </div>
         </nav>
-
 </div>
