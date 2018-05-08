@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <g:link controller="dashboard" class="nav-link" action="index">Home </g:link>
+                    <g:link controller="dashboard" class="nav-link" action="index" style="margin-left: 25px;color: #000000">Home </g:link>
                 </li>
                 <sec:ifNotLoggedIn>
                     <li class="nav-item">
@@ -18,7 +18,7 @@
                 </sec:ifNotLoggedIn>
                 <sec:ifLoggedIn>
                     <li class="nav-item">
-                        <g:link controller="logout" class="nav-link">Logout</g:link>
+                        <g:link controller="logout" class="nav-link btn btn-sm" style="font-size: medium; margin-left: 705px; "><button class="bnt btn-primary ">Logout</button></g:link>
                     </li>
                 </sec:ifLoggedIn>
             </ul>

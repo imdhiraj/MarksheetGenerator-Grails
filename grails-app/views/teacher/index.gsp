@@ -10,6 +10,8 @@
 <head>
     <meta name="layout" content="main"/>
     <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -25,8 +27,6 @@
             <tr>
                 <th>S.N.</th>
                 <th>Name</th>
-                <th>Address</th>
-                <th>Contact Number</th>
                 <th>Email</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -37,11 +37,9 @@
                 <tr>
                     <td> ${i + 1} </td>
                     <td>${teacherInstance?.teacherName}</td>
-                    <td>${teacherInstance?.address}</td>
-                    <td>${teacherInstance?.contactNumber}</td>
                     <td>${teacherInstance?.email}</td>
-                    <td><g:link action="edit" id="${teacherInstance?.id}">Edit</g:link> </td>
-                    <td><g:link action="delete" id="${teacherInstance?.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>
+                    <td><g:link action="edit" id="${teacherInstance?.id}"><i class="fas fa-edit"></i> </g:link> </td>
+                    <td><g:link action="delete" id="${teacherInstance?.id}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></g:link></td>
                     %{--<td><g:link controller="student" action="edit" params="[id:${studentInstance.id}]" >EDit</g:link> </td>--}%
                 </tr>
             </g:each>

@@ -8,6 +8,7 @@ class AdminController {
     def index() { }
 
     def dashboard(){
-
+        def gradeList = Grade.findAll()
+        [gradeList: gradeList]
     }
 }

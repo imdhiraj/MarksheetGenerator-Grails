@@ -27,6 +27,7 @@ class StudentController {
         def grade = Grade.findById(params.grade as long)
         println "grade = $grade"
         Student student = new Student()
+
         student.name = name
         student.rollNo = rollNo
         student.grade = grade

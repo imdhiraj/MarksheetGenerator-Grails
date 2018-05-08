@@ -1,6 +1,6 @@
 
 <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand homeNavLogo" id= "toplogobrand" href="#">
                 <asset:image src="logo.png"  style="width:150px;" title="DSS" alt="DSS"/>
             </a>
@@ -10,10 +10,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <g:link controller="dashboard" class="nav-link" action="index">Home </g:link>
+                        <g:link controller="dashboard" class="nav-link" action="index" style="color: #000000;">Home </g:link>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 25px;color: #000000">
                             View
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,10 +36,10 @@
                         %{--<g:link controller="gradeSubject" class="nav-link" action="index">View Grade Subject</g:link>--}%
                     %{--</li>--}%
                     <li class="nav-item">
-                        <g:link controller="teacherGradeSubject" class="nav-link" action="index">Assign Grade Subject</g:link>
+                        <g:link controller="teacherGradeSubject" class="nav-link" action="index" style="margin-left: 25px;color: #000000">Assign Grade Subject</g:link>
                     </li>
                     <li class="nav-item">
-                        <g:link controller="marksheet" class="nav-link" action="index">View Marks Sheet</g:link>
+                        <g:link controller="marksheet" class="nav-link" action="index" style="margin-left: 25px;color: #000000">View Marks Sheet</g:link>
                     </li>
                     %{--<sec:ifNotLoggedIn>--}%
                         %{--<li class="nav-item">--}%
@@ -47,8 +47,8 @@
                         %{--</li>--}%
                     %{--</sec:ifNotLoggedIn>--}%
                     <sec:ifLoggedIn>
-                        <li class="nav-item btn-secondary btn-sm">
-                            <g:link controller="logout" class="nav-link" style="font-size: large">Logout</g:link>
+                        <li class="nav-item">
+                            <g:link controller="logout" class="nav-link btn btn-sm" style="font-size: medium; margin-left: 305px; "><button class="bnt btn-primary ">Logout</button></g:link>
                         </li>
                     </sec:ifLoggedIn>
                 </ul>

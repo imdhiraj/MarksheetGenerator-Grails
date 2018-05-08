@@ -12,7 +12,7 @@
             <g:form controller="teacher" action="update">
                 <g:hiddenField name="id" value="${teacherInstance.id}"/>
                 <g:render template="form"/>
-                <input type="submit" value="Add" class="btn btn-success">
+                <input type="submit" value="Update" class="btn btn-success">
             </g:form>
         </div>
         <div class="col-md-3"></div>

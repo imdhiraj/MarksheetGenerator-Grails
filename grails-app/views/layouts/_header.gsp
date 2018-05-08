@@ -6,6 +6,9 @@
     <asset:stylesheet src="bootstrap.css"/>
     <asset:stylesheet src="bootstrap-grid.css"/>
     <asset:stylesheet src="bootstrap.min.css"/>
+    <asset:stylesheet src="noty.css"/>
+    <asset:stylesheet src="animate.css"/>
+    <asset:stylesheet src="https://use.fontawesome.com/releases/v5.0.12/css/all.css"/>
     %{--<asset:stylesheet src="dashboard.css"/>--}%
 
     %{--<asset:stylesheet src="application.css"/>--}%
@@ -19,7 +22,24 @@
     <asset:javascript src="bootstrap.bundle.js.js"/>
     <asset:javascript src="https://unpkg.com/feather-icons/dist/feather.min.js"/>
     <asset:javascript src="js.js"/>
+    <asset:javascript src="noty.js"/>
     <g:layoutHead/>
+    <script>
+    $(function(){
+        <g:if test="${flash.message}">
+            new Noty({
+                type: '${messageType}',
+                layout: 'topRight',
+                theme: 'relax',
+                text: '${flash.message}',
+                animation: { open: 'animated bounceInRight', // Animate.css class names
+                    close: 'animated bounceOutRight' // Animate.css class names
+                    },
+                timeout: 1000
+            }).show();
+        </g:if>
+        });
+    </script>
 </head>
 <body>
 %{--<g:include view="layouts/_adminHeader.gsp"/>--}%

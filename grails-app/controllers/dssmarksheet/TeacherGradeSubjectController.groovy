@@ -33,7 +33,7 @@ class TeacherGradeSubjectController {
             redirect(action: "index")
         }
         else{
-            String msg= "Grade Subject already Assigned to Teacher => "+teacher+"!! "
+            String msg= "Grade Subject already Assigned to Teacher "
             render(view:'errorMsg',model: [msg:msg])
         }
 

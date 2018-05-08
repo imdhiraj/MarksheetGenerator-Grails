@@ -10,6 +10,8 @@
 <head>
     <meta name="layout" content="main"/>
     <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -38,7 +40,7 @@
                     <td> ${i + 1} </td>
                     <td>${teacherGradeSubjectInstance?.teacher}</td>
                     <td>${teacherGradeSubjectInstance?.gradeSubject}</td>
-                    <td><g:link action="delete" id="${teacherGradeSubjectInstance.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>
+                    <td><g:link action="delete" id="${teacherGradeSubjectInstance.id}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></g:link></td>
 
                 </tr>
             </g:each>

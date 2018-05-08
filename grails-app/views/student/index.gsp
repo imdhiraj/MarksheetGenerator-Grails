@@ -10,6 +10,8 @@
 <head>
     <meta name="layout" content="main"/>
     <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -27,7 +29,7 @@
             <tr>
                 <th>S.N.</th>
                 <th>Grade</th>
-                <th>View Details</th>
+                <th>View Students</th>
 
 
 
@@ -38,7 +40,7 @@
                     <td> ${i + 1} </td>
                     <td>${gradeInstance?.gradeNo}</td>
                     %{--<td>${gradeSubjectInstance?.subjectName}</td>--}%
-                    <td><g:link action="show" id="${gradeInstance.id}">View Details</g:link></td>
+                    <td><g:link action="show" id="${gradeInstance.id}"><i class="fas fa-eye fa-2x"></i> </g:link></td>
                 </tr>
             </g:each>
         </table>

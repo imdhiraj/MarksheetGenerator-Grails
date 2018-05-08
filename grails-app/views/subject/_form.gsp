@@ -6,7 +6,7 @@
         <div class="input-group-addon">
             %{--<span class="glyphicon glyphicon-book"></span>--}%
         </div>
-        <g:textField name="subjectName" id="subjectName" value="${subjectInstance.subjectName.toString()}" placeholder=" Subject Name" class="form-control" required="" autofocus="" />
+        <g:textField name="subjectName" id="subjectName" value="${subjectInstance.subjectNam}" placeholder=" Subject Name" class="form-control" required="" autofocus="" />
     </div>
 </div>
 

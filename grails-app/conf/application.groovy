@@ -6,6 +6,11 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'dssmarksheet.U
 grails.plugin.springsecurity.authority.className = 'dssmarksheet.Role'
 grails.plugin.springsecurity.logout.postOnly = false
 
+
+grails.plugin.wkhtmltopdf.binary = "/usr/bin/wkhtmltopdf"
+
+
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
