@@ -17,10 +17,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <p class="btn btn-secondary text-right">${gradeSubjectList.gradeNo[0].toString()}</p>
+            <p class="btn btn-secondary text-right">${grade}</p>
         </div>
         <div class="text-right col-md-9">
-            <g:link class="btn btn-primary "  controller="gradeSubject" action="create">Add Grade Subject</g:link><br><br>
+            <g:link class="btn btn-primary " params="['id':grade]" id="${grade}" controller="gradeSubject" action="create">Add Grade Subject</g:link><br><br>
         </div>
     </div>
 </div>
@@ -33,7 +33,6 @@
                 <th>S.N.</th>
                 <th>Subject</th>
                 %{--<th>View Details</th>--}%
-                <th>Delete</th>
 
 
             </tr>
@@ -44,7 +43,6 @@
                     %{--<td>${gradeSubjectInstance?.gradeNo}</td>--}%
                     <td>${gradeSubjectInstance?.subjectName}</td>
                     %{--<td><g:link action="show" id="${gradeSubjectInstance.id}">View Details</g:link></td>--}%
-                    <td><g:link action="delete" id="${gradeSubjectInstance.id}" onclick="return confirm('Are you sure?')">Delete</g:link></td>
                 </tr>
             </g:each>
         </table>

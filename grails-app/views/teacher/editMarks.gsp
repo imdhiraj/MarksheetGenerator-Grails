@@ -26,9 +26,11 @@
                     <table class="table-bordered">
                         <tbody>
                         <tr>
-                            <td>Student : ${student?.name}<input type="hidden" value="${studentInstance?.name}"</td>
+                            <td>Student : ${student?.name}</td>
                         </tr>
                         <g:form controller="teacher" action="updateMarks" >
+                            <g:hiddenField name="student" value="${student.id}"></g:hiddenField>
+                            <g:hiddenField name="teacherGradeSubject" value="${teacherGradeSubject.id}"></g:hiddenField>
                             <tr>
                             <td> <g:textField  type ="number" name="obtainedMarks" id="obtainedMarks" value="${obtainedMarks}" placeholder="Marks"></g:textField>
                             </td>

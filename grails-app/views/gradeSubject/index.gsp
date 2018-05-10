@@ -18,7 +18,7 @@
 <br>
 <div class ="container">
     <div class="text-right">
-        <g:link class="btn btn-primary "  controller="gradeSubject" action="create">Add Grade Subject</g:link><br><br>
+        %{--<g:link class="btn btn-primary "  controller="gradeSubject" action="create">Add Grade Subject</g:link><br><br>--}%
     </div>
 
 

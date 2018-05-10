@@ -27,13 +27,20 @@ class StudentController {
         def grade = Grade.findById(params.grade as long)
         println "grade = $grade"
         Student student = new Student()
+        def validStudent = Student.findByRollNo(rollNo)
+                if(!validStudent){
+                    student.name = name
+                    student.rollNo = rollNo
+                    student.grade = grade
+                    println "student = $student"
+                    student.save(flush:true,failOnError:true)
+                    redirect(action: "index")
+                }
+        else{
+                    String msg= "Student with roll No"+ rollNo +" already exists "
+                    render(view:'errorMsg',model: [msg:msg])                }
+        println "validStudent = $validStudent"
 
-        student.name = name
-        student.rollNo = rollNo
-        student.grade = grade
-        println "student = $student"
-        student.save(flush:true,failOnError:true)
-        redirect(action: "index")
     }
 
     def edit(){

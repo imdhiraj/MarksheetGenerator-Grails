@@ -50,10 +50,10 @@
                 <p style="font-weight: bold">Name : ${studentInstance.name}</p>
             </div>
             <div class="text-center">
-                <p style="margin-left:250px ">Grade No : ${studentInstance.grade}</p>
+                <p style="margin-left:250px ;font-weight: bold">Class : ${studentInstance.grade}</p>
             </div>
             <div class="text-right">
-                <p  style="margin-left:250px "> Roll No : ${studentInstance.rollNo}</p>
+                <p  style="margin-left:250px;font-weight: bold"> Roll No : ${studentInstance.rollNo}</p>
             </div>
             <table class="table-bordered table">
                 <thead>

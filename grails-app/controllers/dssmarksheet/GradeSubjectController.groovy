@@ -10,12 +10,14 @@ class GradeSubjectController {
         [gradeList: gradeList]
     }
     def create(){
+        def grade = params.id
+        println "grade = $grade"
         def gradeList = Grade.findAll()
         def subjectList = Subject.findAll()
-        [gradeList:gradeList, subjectList: subjectList]
+        [gradeList:gradeList, subjectList: subjectList,grade: grade]
     }
     def saveForm(){
-        def grade = Grade.findById(params.gradeNo as long)
+        def grade = Grade.findByGradeNo(params.gradeNo)
         def subject = Subject.findById(params.subjectName as String)
 //        String subjects = params.subjectName
 //        def gr = grades as Grade.GradeNo
@@ -36,7 +38,7 @@ class GradeSubjectController {
     def show(){
         def grade = Grade.findById(params.id as long)
         def gradeSubjectList = GradeSubject.findAllByGradeNo(grade)
-        [gradeSubjectList:gradeSubjectList]
+        [gradeSubjectList:gradeSubjectList,grade: grade]
 
     }
 
@@ -46,8 +48,8 @@ class GradeSubjectController {
             gradeSubjectToDelete.delete(flush: true)
             redirect(action: "index")
         }else{
-            println "Cannot Be Deleted!"
-            redirect(action: "index")
+            def msg =  "Cannot Be Deleted!"
+            redirect(action: "index",model:[msg:msg])
         }
 
     }

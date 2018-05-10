@@ -22,8 +22,9 @@ class TeacherController {
         String teacherName = params.teacherName
         String email = params.email
         println "email = $email"
-        String password = params.password
+
         def username = email.split("@")
+        String password = username[0]+"123!@"
         String u = username[0]
         mailService.sendMail{
             to params.email
@@ -127,7 +128,7 @@ class TeacherController {
 
         def studentList = params.list('studentName[]')
         def markList = params.list('obtainedMarks[]')
-        def gradeSubject = GradeSubject.findById(params.subject as long)
+        def gradeSubject = GradeSubject.findById(params.subject)
         String[] name = gradeSubject.toString().trim().split("-")
         println("(((((((((((((((----" + name[0])
         println("(((((((((((((((----" + name[1])
@@ -157,14 +158,29 @@ class TeacherController {
 
     @Secured("ROLE_USER")
     def editMarks() {
-        def id = params.id
-        def student = Student.findById(id as long)
-        def studentMarks = StudentMarks.findByStudent(student)
+        println "param "+params
+
+        def id = params.id.toString().split(":")
+        def student = Student.findById(id[0] as long)
+        def grade = GradeSubject.findById(id[1] as long)
+        println "grade = $grade"
+        def teacher = TeacherGradeSubject.findByGradeSubject(grade)
+        println "teacher = $teacher"
+        def studentMarks = StudentMarks.findByStudentAndTeacherGradeSubject(student,teacher)
         def obtainedMarks = studentMarks.marksObtained
         println "obtainedMarks = $obtainedMarks"
-        [student: student, obtainedMarks: obtainedMarks]
+        [student: student, obtainedMarks: obtainedMarks,teacherGradeSubject: teacher]
     }
+    @Secured("ROLE_USER")
+    def updateMarks(){
+        def student = Student.findById(params.student)
+        def teacherGradeSubject = TeacherGradeSubject.findById(params.teacherGradeSubject)
+        def marks = StudentMarks.findByStudentAndTeacherGradeSubject(student,teacherGradeSubject)
+        marks.marksObtained = Double.parseDouble(params.obtainedMarks)
+        marks.save(flush:true)
+        redirect(action: 'dashboard')
 
+    }
     def viewStudentMarks() {
 
     }

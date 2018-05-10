@@ -59,7 +59,8 @@
                     </td>
                     <td>
                 <g:if test="${flag||teacherGradeSubject.marksStatus}">
-                        <g:link controller="teacher" action="editMarks" id="${studentInstance?.id}" ><i class="fas fa-edit"></i></g:link> </td>
+                    <g:hiddenField name="subject" value="${gradeSubject?.id}"/>
+                    <g:link controller="teacher" action="editMarks" id="${studentInstance?.id+":"+gradeSubject?.id}" ><i class="fas fa-edit"></i></g:link> </td>
                 </g:if>
                     <td>
                         <g:if test="${teacherGradeSubject.marksStatus}">
